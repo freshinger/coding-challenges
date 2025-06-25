@@ -2,7 +2,6 @@ function maskify(input) {
   let inputArray = input.split("");
   let output = "";
   for (let index = 0; index < inputArray.length; index++) {
-    const element = inputArray[index];
     if (inputArray.length - 4 > index) {
       output += "#";
     } else {
