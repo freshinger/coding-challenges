@@ -22,3 +22,11 @@ let filtered = filterlongwords(words);
 for (const word of filtered) {
   console.log(word);
 }
+
+// step 3
+
+let numbersToReduce: number[] = [1, 2, 3, 4];
+function sumNumbers(input: number[]): number {
+  return input.reduce((x, y) => x + y);
+}
+console.log(sumNumbers(numbersToReduce));
