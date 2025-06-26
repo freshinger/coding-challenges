@@ -22,3 +22,6 @@ console.log(sortByNumber(testString1));
 //test 2
 let testString2 = "4of Fo1r pe6ople g3ood th5e the2";
 console.log(sortByNumber(testString2));
+//test 2
+let testString3 = "";
+console.log(sortByNumber(testString3));
