@@ -15,7 +15,7 @@ else {
 // step 4
 let score = 0;
 // step 5
-if (score) {
+if (score !== 0) {
     console.log("score is available.");
 }
 // step 6

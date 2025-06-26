@@ -17,7 +17,7 @@ if (age > 18) {
 let score: number = 0;
 
 // step 5
-if (score) {
+if (score !== 0) {
   console.log("score is available.");
 }
 
