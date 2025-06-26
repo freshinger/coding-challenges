@@ -2,7 +2,21 @@ type Student = {
   firstname: string;
   lastname: string;
   age: number;
-  grades: (number | string | undefined)[];
+  grades: (
+    | 1
+    | 2
+    | 3
+    | 4
+    | 5
+    | 6
+    | "A"
+    | "B"
+    | "C"
+    | "D"
+    | "E"
+    | "F"
+    | undefined
+  )[];
 };
 
 function showAllStudents(students: Student[]): void {
@@ -45,7 +59,7 @@ showStudent({
   grades: [1, 2, 1, "F", undefined],
 });
 
-const students = [
+const students: Student[] = [
   {
     firstname: "Anton",
     lastname: "Bertrand",
