@@ -1,0 +1,96 @@
+openapi: 3.0.4
+info:
+  title: Hello World
+  description: |-
+    Hello World example
+  version: 1.0.12
+servers:
+  - url: https://localhost:3200
+paths:
+  /hello/{name}:
+    get:
+      summary: greet you by name.
+      description: saying Hello, {name}! as output
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/HelloWorldResponse'
+    parameters:
+    - name: name
+      in: path
+      required: true
+      schema:
+        type: string
+  /users:
+    post:
+      summary: post users with name and email as json
+      description: route to insert user list
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: Created
+      security:
+      - bearerAuth: []
+  /users/{id}:
+    get:
+      summary: getting a user by id
+      description: this route fetches a user by id
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/User'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/Error'
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+components:
+  schemas:
+    HelloWorldResponse:
+      type: object
+      properties:
+        greeting:
+          type: string
+          example: 'Hello, World!'
+    User:
+      type: object
+      properties:
+        name:
+          type: string
+          example: 'John'
+        email:
+          type: string
+          example: 'John@email.com'
+    Error:
+      type: object
+      properties:
+        ErrorCode:
+          type: integer
+        Message:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  
